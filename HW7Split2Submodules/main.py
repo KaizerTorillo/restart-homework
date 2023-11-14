@@ -1,3 +1,4 @@
+from pydantic import BaseModel, field_validator
 from dto import InventoryItem, ItemOrigin
 
 def main():
