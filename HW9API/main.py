@@ -22,6 +22,18 @@ class InventoryItem(BaseModel):  #When defining data classes, also need to defin
     origin: ItemOrigin  # A nested Dataclass.
 
 
+my_inventory_items_dict: Dict[str, InventoryItem] = {InventoryItem(serial_num), InventoryItem}
+app = FastAPI()
+
+@app.put("/items/{serial_num}")
+def update_item(serial_num: str):
+    if serial_num in my_inventory_items_dict:
+        return my_inventory_items_dict
+    return "Not an item"
+
+@app.get("items/{serial_num}")
+def read_item()
+
 def main():
     item_origin = ItemOrigin(country = "Ethiopia", production_date = "02/12/2023")
     my_item1 = InventoryItem(name = "printer", 
