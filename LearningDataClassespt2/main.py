@@ -7,7 +7,7 @@ class ItemOrigin(BaseModel):
     
     @field_validator("country")
     @classmethod
-    def check_valid_country(cls, country: str):
+    def check_valid_country(cls, country: str): #cls is referring to the classmethod itself, similar to how self. refers to class.
         assert country == "Ethiopia", "Country name must be Ethiopia"
         
 

@@ -11,14 +11,14 @@ class InventoryItem:  #When defining data classes, also need to define type of d
     name: str
     quantity: int
     serial_num: str
-    origin: ItemOrigin
+    origin: ItemOrigin  # A nested Dataclass.
 
 def main():
     item_origin = ItemOrigin(country = "Ethiopian", production_date = "02/12/2023")
     my_item1 = InventoryItem(name = "printer", 
                              quantity = 2, 
                              serial_num = "KJAHSD",
-                            origin = item_origin)
+                             origin = item_origin)
     my_serialized_object1 = my_item1.__dict__
     print(my_serialized_object1)
     my_item2 = InventoryItem(**my_serialized_object1)
