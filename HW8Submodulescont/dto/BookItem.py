@@ -1,8 +1,9 @@
 from pydantic import BaseModel, field_validator
+from .Author import Author
 
 class BookItem(BaseModel):
     name: str
-    author: "Author"
+    author: Author
     year_published: int 
     @field_validator("year_published")
     @classmethod

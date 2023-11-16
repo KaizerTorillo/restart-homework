@@ -2,7 +2,7 @@
 from pydantic import BaseModel
 from .BookItem import BookItem
 
-class Bookstore(BaseModel):
+class BookStore(BaseModel):
     name_bookstore: str
     book_shelve: BookItem
     
