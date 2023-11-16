@@ -1,5 +1,6 @@
+from pydantic import BaseModel
+from dto import Author, BookItem, BookStore
 
-from Library import Author, BookItem, BookStore
 def main():
     is_author = Author(name = "John Grisham", author_id = "HYGS-1999")
     book_item = BookItem(name = "The Broker", author = is_author, year_published = 1999)
