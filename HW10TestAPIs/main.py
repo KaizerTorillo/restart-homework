@@ -27,3 +27,7 @@ def delete_item(name:str) -> Dict:
         return {"msg" : "Successfully deleted book from register"}
     else:
         raise HTTPException(status_code=404, detail = "Error: Book not found : " + name)
+    
+@app.get("/books/")  # What if we want multiple items? Use this
+def get_items() -> List[BookItem]:
+    return my_book_items_dict.values()  #We are only wanting a list of the values, not the whole dictionary.
