@@ -65,3 +65,22 @@ def test_delete_api(client, good_payload):
 def test_check_delete_api(client, good_payload):
     response = client.delete("items/123sd/")
     assert response.status_code == 404
+
+
+@pytest.mark.parametrize(
+    "payload, http_code",
+    [
+        (
+            {
+                "name": "desk",
+                "quantity": 2,
+                "serial_num": "123sd",
+                "origin": {"country": "Ethiopia", "production_date": "2023"},
+            },
+            200,
+        ),
+        (None, 404),
+    ],
+)
+def test_many_put_api(payload, http_code, client):
+    assert client.put("/books/test", json=payload).status_code == http_code

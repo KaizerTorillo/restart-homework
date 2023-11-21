@@ -1,0 +1,30 @@
+--INSERT INTO customer
+--VALUES (600, 1, 'WAT', 'WAT', 'A.A@sakilacustomer.org',606,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+
+--INSERT INTO customer
+--VALUES (601, 1, 'BRU', 'WAT', 'B.B@sakilacustomer.org',607,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+
+--INSERT INTO customer
+--VALUES (602, 1, 'BRO', 'WAT', 'C.C@sakilacustomer.org',608,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+
+UPDATE customer
+SET store_id = 1
+WHERE store_id = 2 AND customer_id <12
+
+SELECT customer.store_id, customer.first_name, staff.store_id, staff.first_name
+FROM customer
+JOIN staff
+WHERE customer.store_id = 1 AND staff.first_name = 'Mike' 
+
+UPDATE staff
+SET store_id = 3
+WHERE first_name = 'Jon'
+
+INSERT INTO customer
+VALUES (603, 3, 'BRU', 'WAT', 'B.B@sakilacustomer.org',608,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),(604, 3, 'BRU', 'WAT', 'B.B@sakilacustomer.org',609,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),(605, 3, 'BRU', 'WAT', 'B.B@sakilacustomer.org',610,1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+
+
+SELECT customer.store_id, customer.first_name, staff.first_name
+FROM customer
+JOIN staff
+WHERE customer.store_id = 3
