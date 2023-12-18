@@ -38,6 +38,11 @@ def test_incorrect_input_put_api(client, bad_payload):
     assert response.status_code == 422
 
 
+def test_put_api(client, good_payload):
+    response = client.put("/books/test/", json=good_payload)
+    assert response.status_code == 200
+
+
 def test_get_api(client, good_payload):
     response = client.get("/books/test/")
     assert response.status_code == 404

@@ -1,9 +1,10 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, validator
+
 
 class Author(BaseModel):
     name: str
-    
-    @field_validator("name")
+
+    @validator("name")
     @classmethod
     def check_valid_author(cls, name: str):
         if name.istitle():
@@ -11,5 +12,5 @@ class Author(BaseModel):
         else:
             print("Not a valid name format")
             return False
-        
+
     author_id: str

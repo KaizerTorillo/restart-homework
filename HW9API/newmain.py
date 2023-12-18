@@ -18,7 +18,7 @@ def create_item(
 @app.get("/items/{serial_num}")  # Getting one item.
 def get_item(serial_num: str) -> InventoryItem:
     if serial_num in my_inventory_item_dict.keys():
-        return my_inventory_item_dict
+        return my_inventory_item_dict[serial_num]
     else:
         raise HTTPException(status_code=404, detail="Item not found : " + serial_num)
 
